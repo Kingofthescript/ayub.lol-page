@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ayub.lol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+body {
+  position: relative;
+  background-color: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  overflow-y: hidden; /* hide scroll for vertical raindrops */
+}
+
+/* Container for raindrop dots */
+.rain-dots {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* so clicks pass through */
+  overflow: visible;
+  z-index: 0; /* behind content */
+}
+
+/* Each raindrop dot */
+.rain-dots::before, .rain-dots::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation-name: raindropFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+/* Create multiple dots with different positions and delays */
+.rain-dots::before {
+  left: 20vw;
+  animation-duration: 6s;
+  animation-delay: 0s;
+  box-shadow:
+    40vw 10vh white,
+    70vw 5vh white,
+    90vw 0vh white,
+    10vw 15vh white,
+    55vw 20vh white;
+}
+
+.rain-dots::after {
+  left: 50vw;
+  animation-duration: 8s;
+  animation-delay: 3s;
+  box-shadow:
+    15vw 8vh white,
+    35vw 12vh white,
+    60vw 4vh white,
+    80vw 16vh white,
+    95vw 7vh white;
+}
+
+/* Raindrop falling animation */
+@keyframes raindropFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+
+
+    .container {
+      text-align: center;
+      animation: fadeInUp 1.2s ease;
+    }
+
+   .pfp {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #ff4df8;
+  box-shadow: 0 0 30px #ff4df8aa;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  object-fit: cover; /* THIS FIXES THE STRETCHING */
+}
+
+
+    .pfp:hover {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #ff4df8;
+      text-shadow: 0 0 10px #ff4df8aa;
+      margin-bottom: 10px;
+    }
+
+    p.bio {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .link-btn {
+      background: #222;
+      padding: 15px;
+      border-radius: 16px;
+      border: 2px solid #ff4df8;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .link-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, #ff4df8aa, transparent);
+      transition: all 0.5s ease;
+    }
+
+    .link-btn:hover::before {
+      left: 100%;
+    }
+
+    .link-btn:hover {
+      background: #2d2d2d;
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #ff4df8aa;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #666;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+
+background: linear-gradient(270deg, #ffb6c1, #ff4df8, #ff9ae1);
+background-size: 600% 600%;
+animation: gradientShift 20s ease infinite;
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+ <div class="rain-dots"></div>
+
+  <div class="container">
+    <img class="pfp" src="https://cdn.discordapp.com/attachments/1362821475148632086/1377370842886963220/IMG_5047.jpg?ex=6838b80f&is=6837668f&hm=81535fa7a5a6f87e4b9812787f71c8c4d114d4ac647b753b44e4d794afc6f464&" alt="Ayub Profile Picture">
+    <h1>@ayub</h1>
+    <p class="bio">8ft tall mysterious non-chalant curly head 💯</p>
+
+    <div class="links">
+     <a href="https://tiktok.com/@ayub.idk" class="link-btn" target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="height: 22px; width: 22px; fill: #ff4df8; vertical-align: middle; margin-right: 8px;">
+    <path d="M448,209.2V128c-30.2,0-58.5-9.7-81.4-26.1c-21.5-15.5-38.1-37.1-46.9-62.5c-3.3-9.5-5.1-19.6-5.7-29.4h-73.1v319.5c0,25.6-20.8,46.4-46.4,46.4c-25.6,0-46.4-20.8-46.4-46.4c0-25.6,20.8-46.4,46.4-46.4c4.6,0,9,0.7,13.1,1.9V221.1c-4.3-0.6-8.7-1-13.1-1c-66.5,0-120.4,53.9-120.4,120.4S174.9,461,241.4,461c66.5,0,120.4-53.9,120.4-120.4V195.7c21.3,10.9,45.3,17,70.3,17c5.5,0,10.9-0.3,16.3-0.9Z"/>
+  </svg>
+  TikTok
+</a>
+
+      <a href="https://instagram.com/ayztrades" class="link-btn" target="_blank">
+  <!-- Paste the SVG here -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="height: 22px; width: 22px; fill: #ff4df8; vertical-align: middle; margin-right: 8px;">
+    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9 0 63.6 51.3 114.9 114.9 114.9 63.6 0 114.9-51.3 114.9-114.9 0-63.6-51.3-114.9-114.9-114.9zm0 190.3c-41.8 0-75.7-33.9-75.7-75.7 0-41.8 33.9-75.7 75.7-75.7 41.8 0 75.7 33.9 75.7 75.7 0 41.8-33.9 75.7-75.7 75.7zm146.4-194.8c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9 0-14.9 12-26.9 26.9-26.9 14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9-26.3-26.3-57.6-34.5-92.9-36.2-36.6-2.1-146.6-2.1-183.1 0-35.3 1.7-66.7 9.9-92.9 36.2-26.3 26.3-34.5 57.6-36.2 92.9-2.1 36.6-2.1 146.6 0 183.1 1.7 35.3 9.9 66.7 36.2 92.9 26.3 26.3 57.6 34.5 92.9 36.2 36.6 2.1 146.6 2.1 183.1 0 35.3-1.7 66.7-9.9 92.9-36.2 26.3-26.3 34.5-57.6 36.2-92.9 2.1-36.6 2.1-146.6 0-183.1zM398.8 388c-7.8 19.6-23.1 34.9-42.7 42.7-29.6 11.7-99.8 9-132.1 9s-102.5 2.6-132.1-9c-19.6-7.8-34.9-23.1-42.7-42.7-11.7-29.6-9-99.8-9-132.1s-2.6-102.5 9-132.1c7.8-19.6 23.1-34.9 42.7-42.7 29.6-11.7 99.8-9 132.1-9s102.5-2.6 132.1 9c19.6 7.8 34.9 23.1 42.7 42.7 11.7 29.6 9 99.8 9 132.1s2.7 102.5-9 132.1z"/>
+  </svg>
+  Instagram
+</a>
+
+      
+    </div>
+
+    <p class="footer">Made By A Sigma.</p>
+  </div>
+</body>
+</html>
